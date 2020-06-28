@@ -6,14 +6,15 @@ load_dotenv()
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
         # User is requesting the form
         return render_template('login.html')
     elif request.method == 'POST':
         # User has sent us data
-        return redirect(url_for('index'))
-@app.route('/index/')
+        return render_template('index.html')
+
+@app.route('/index')
 def index():
 	return "Good you have logged in"
