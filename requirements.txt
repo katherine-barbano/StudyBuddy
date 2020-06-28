@@ -1,2 +1,5 @@
 flask
 python-dotenv
+azure-cognitiveservices-personalizer
+algorithmia
+nltk
