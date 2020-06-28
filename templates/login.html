@@ -69,9 +69,12 @@ span.psw {
 <body>
 
 <h2>Login Form</h2>
-
+{%if error%}
+  <h4>User Doesn't exist Try again.</h4>
+{%endif%}
 <form method="POST">
   <div class="container">
+
     <label for="uname"><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname" required>
 

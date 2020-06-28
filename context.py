@@ -10,7 +10,6 @@ from math import sqrt
 import operator
 
 example_input = {
-  "inp_name": "Samo",
   "people": [
     {
           "name": "Samo",
@@ -344,7 +343,6 @@ def scoring_function(person1, person2):
                 score += 0.01
     score /= sqrt(len(interest_list1)* len(interest_list2))
     return score
-
 
 apply(example_input, 'James')
 
