@@ -17,26 +17,16 @@ def login():
 
 @app.route('/index')
 def index():
-	return "Good you have logged in"
+    return "Good you have logged in"
 
-@app.route('/signup', methods=['GET', 'POST'])
+@app.route('/signup/', methods=['GET', 'POST'])
 def signup():
     if request.method == 'GET':
-        # User is requesting the form
         return render_template('signup.html')
     elif request.method == 'POST':
-        # User has sent us data
-		print(request.form['uname'])
-		print(request.form['tags'])
-		tags = request.form['tags'].split(',')
-		for item in tags:
-
-		print(request.form['tags'])
-		tags = request.form['tags'].split(',')
-
-		final_dict = {}
-		tags_processed = []
-		for item in tags:
-    		tags_processed.append(item.strip().lower())
-		final_dict['tags'] = tags_processed
+        final_dict = {}
+        tags_processed = []
+        for item in request.form['tags']:
+            tags_processed.append(item.strip().lower())
+        final_dict['tags'] = tags_processed
         return redirect(url_for('index'))
