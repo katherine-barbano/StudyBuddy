@@ -21,18 +21,24 @@ def index():
     if request.method == 'GET':
         return render_template('index.html')
     elif request.method == 'POST':
-        sentence=request.form['goal']
         return redirect(url_for('rankings'))
 
 
 @app.route('/rankings/', methods=['GET','POST'])
 def rank():
-    #Retrieve info from database. Assumes info in form of 3 arrays
-    #userArray=['user1','user2','user3','user4','user5']
-    #goalArray=['goal1','goal2','goal3','goal4','goal5']
-    #tagArray=[['flask','node'],['code'],['flask'],['fun','microsoft','java'],['swift']]#nested array
-    if request.method == "GET":#somehow need to get these arrays + database info into rankings.html table info
-        return render_template("rankings.html")
+    #Replace this with database info
+    u1="username1"
+    u2="username2"
+    u3="username3"
+    u4="username4"
+    u5="username5"
+    tag1=["code","python"]
+    tag2=["python"]
+    tag3=["java","python","react"]
+    tag4=["code"]
+    tag5=["java","python"]
+    if request.method == "GET":
+        return render_template("rankings.html", user1=u1,user2=u2,user3=u3,user4=u4,user5=u5,tag1=tag1,tag2=tag2,tag3=tag3,tag4=tag4,tag5=tag5)
     elif request.method == "POST":
         num=request.form['num']
         if num=="1":
@@ -51,40 +57,40 @@ def rank():
 def userconnect1():
     #pull info from database
     user="user1"#eg database[1]
-    goal="goal1"#eg database[1]
-    return render_template('userconnect.html',uname=user,goal=goal)
+    tags=["interest1","interest2"]#eg database[1]
+    return render_template('userconnect.html',uname=user,tags=tags)
 
 @app.route('/userconnect2/', methods=['GET','POST'])
 @app.route('/userconnect2/<uname>')
 def userconnect2():
     #pull info from database
     user="user2"#eg database[1]
-    goal="goal2"#eg database[1]
-    return render_template('userconnect.html',uname=user,goal=goal)
+    tags=["interest1","interest2"]#eg database[1]
+    return render_template('userconnect.html',uname=user,tags=tags)
 
 @app.route('/userconnect3/', methods=['GET','POST'])
 @app.route('/userconnect3/<uname>')
 def userconnect3():
     #pull info from database
     user="user3"#eg database[2]
-    goal="goal3"#eg database[2]
-    return render_template('userconnect.html',uname=user,goal=goal)
+    tags=["interest1","interest2"]#eg database[1]
+    return render_template('userconnect.html',uname=user,tags=tags)
 
 @app.route('/userconnect4/', methods=['GET','POST'])
 @app.route('/userconnect4/<uname>')
 def userconnect4():
     #pull info from database
     user="user4"#eg database[3]
-    goal="goal4"#eg database[3]
-    return render_template('userconnect.html',uname=user,goal=goal)
+    tags=["interest1","interest2"]#eg database[1]
+    return render_template('userconnect.html',uname=user,tags=tags)
 
 @app.route('/userconnect5/', methods=['GET','POST'])
 @app.route('/userconnect5/<uname>')
 def userconnect5():
     #pull info from database
     user="user5"#eg database[4]
-    goal="goal5"#eg database[4]
-    return render_template('userconnect.html',uname=user,goal=goal)
+    tags=["interest1","interest2"]#eg database[1]
+    return render_template('userconnect.html',uname=user,tags=tags)
 
     
 
